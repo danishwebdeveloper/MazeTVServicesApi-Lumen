@@ -18,5 +18,3 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/tvmazeshow', 'TvMazeController@index');
-
-$router->get('/tvmazeshow/{id}', 'TvMazeController@show');

@@ -27,12 +27,9 @@ class TvMazeController extends Controller
         if (!$request->q) {
             return $this->errorResponse('Missing required parameters: q', Response::HTTP_BAD_REQUEST);
         } else {
-            return $this->successResponse($this->tvmazeService->obtainTvShows($request->all()));
-        }
-    }
 
-    public function show($id)
-    {
-        return $this->successResponse($this->tvmazeService->obtainTvShow($id));
+            return $this->successResponse($this->tvmazeService->obtainTvShows($request->all()));
+
+        }
     }
 }

@@ -29,13 +29,8 @@ class TVMazeService
      */
     public function obtainTvShows($data)
     {
-
-        return $this->performRequest("GET", "/search/shows?q=" . $data['q']);
+        return $this->performRequest("GET", "/search/shows?q=" . $data['q'], [], [], $data['q']);
 
     }
 
-    public function obtainTvShow($id)
-    {
-        return $this->performRequest("GET", "/shows/{$id}");
-    }
 }
