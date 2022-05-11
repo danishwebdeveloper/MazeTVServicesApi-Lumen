@@ -17,4 +17,6 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/tvmaze', 'TvMazeController@index');
+$router->get('/tvmazeshow', 'TvMazeController@index');
+
+$router->get('/tvmazeshow/{id}', 'TvMazeController@show');
