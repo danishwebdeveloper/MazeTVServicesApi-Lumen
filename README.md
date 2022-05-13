@@ -1,24 +1,45 @@
-# Lumen PHP Framework
+# Using Lumen PHP Framework
+## Fashionette AG Challenge
+## Tasks
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+The challenge is to create a JSON API.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+Consumer can search TV shows by their name: https://json-api.local/?q=deadwood
 
-## Official Documentation
+Any other request to the API is invalid and should return the appropriate response.
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+Use the third party service TVMaze. API description can be found here: http://www.tvmaze.com/api.
 
-## Contributing
+Should filter these values to be non-case sensitive and non-typo tolerant.
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Good structure, best practices, readability and maintainability.
 
-## Security Vulnerabilities
+Write Test Cases.
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-## License
+## Installation
+1. Clone github repo
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. cd into your project
+
+3. Install composer
+
+4. Install Guzzle "composer require guzzlehttp/guzzle"
+
+4. Install Lumen Generator to enable all artisan commands "composer require flipbox/lumen-generator"
+
+5. Register Lumen Geenrator in app.php. $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+
+6. Set the application key : php artisan key:generate
+
+7. Run tests through .\vendor\bin\phpunit --filter TVMazeShowAPITest
+
+8. Run the Get Request http://localhost:8000/tvmazeshow?q=deadwood
+
+## Optimizations
+How you think the API can be evolved in the future, and changes you would like to make, given more time.
+
+We can use more features of the MazeApi. We can also remove the condition of Non-typo tolerance so after that we get all the records where deadwood complete word match and it will take around 4 to 5 minutes and I already write the code for this and make it commented. 
+Moreover, we can also put some middleware authentication & policies, etc. 
+
+
