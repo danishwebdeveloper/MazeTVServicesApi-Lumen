@@ -18,7 +18,7 @@ Write Test Cases.
 
 
 ## Installation
-1. Clone github repo
+1. Clone github repository
 
 2. cd into your project
 
