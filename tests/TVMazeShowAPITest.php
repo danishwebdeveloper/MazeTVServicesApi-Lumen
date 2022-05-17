@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Http;
+
 class TVMazeShowAPITest extends TestCase
 {
     /**
@@ -25,6 +27,18 @@ class TVMazeShowAPITest extends TestCase
         $lowerCaseResult = $this->call('GET', '/tvmazeshow?q=deadwood');
         $uperCaseResult = $this->call('GET', '/tvmazeshow?q=DEadwood');
         $this->assertEquals($lowerCaseResult[0]['show'], $uperCaseResult[0]['show']);
+    }
+
+    public function test_returns_message_if_result_equals_to_null()
+    {
+        $this->call('GET', '/tvmazeshow/?q=')->assertSee('Missing required parameters: q');
+    }
+
+    public function test_non_typo_tolerant_result()
+    {
+        $this->assertCount(3, Http::get("http://api.tvmaze.com/search/shows?q=deadwood")->json());
+
+        $this->assertCount(1, $this->call('GET', '/tvmazeshow?q=deadwood')->json());
     }
 
 }
